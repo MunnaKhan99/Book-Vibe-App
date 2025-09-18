@@ -2,20 +2,31 @@ import React from 'react';
 import { useLoaderData } from 'react-router';
 import './bookDetails.css'
 import { addToStoreDB } from '../../Utility/addToDB';
-const BookDetails = () => {
-    const book = useLoaderData();
-    // console.log(book);
-    const {bookName,bookId,author,category,image,publisher,rating,review,tags,totalPages,yearOfPublishing} = book
-  
-    const handleMarkAsRead = id =>{
-        //store with id
-        //store bookstore
-        // arry or collection 
-        //if book already have then show a alert
-        //if book not exists push the collection or
-        addToStoreDB(id); 
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+  import { ToastContainer, toast } from 'react-toastify';
+const MySwal = withReactContent(Swal)
 
-    }
+const BookDetails = () => {
+  const book = useLoaderData();
+  // console.log(book);
+  const { bookName, bookId, author, category, image, publisher, rating, review, tags, totalPages, yearOfPublishing } = book
+
+  const handleMarkAsRead = id => {
+    //store with id
+    //store bookstore
+    // arry or collection 
+    //if book already have then show a alert
+    //if book not exists push the collection or
+    // MySwal.fire({
+    //   title: "Good job!",
+    //   text: "You clicked the button!",
+    //   icon: "success"
+    // });
+    toast("Wow so easy!");
+    addToStoreDB(id);
+
+  }
   return (
     <div className="book-details-container">
       {/* left side */}
@@ -48,9 +59,10 @@ const BookDetails = () => {
         <p>Publisher:  {publisher}</p>
         <p>Year Of Publishing: {yearOfPublishing}</p>
         <p>Rating: ⭐ {rating}</p>
-        
+
         <div className="book-buttons">
-          <button onClick={()=>handleMarkAsRead(bookId)} className="btn-read">Mark as Read</button>
+          <button onClick={() => handleMarkAsRead(bookId)} className="btn-read">Mark as Read</button>
+          <ToastContainer />
           <button className="btn-wishlist">Add to Wishlist</button>
         </div>
       </div>
