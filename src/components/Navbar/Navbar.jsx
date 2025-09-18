@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 import "./navbar.css"
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -21,7 +22,7 @@ const Navbar = () => {
             </div>
             {/* link */}
             <div className='link-btn desktop-only'>
-                <button className='nav-link-btn-1'>Home</button>
+                <Link to='/'> <button className='nav-link-btn-1'>Home</button></Link>
                 <button className='nav-link-btn-2'>Listed Books</button>
                 <button className='nav-link-btn-3'>Pages to read</button>
             </div>
