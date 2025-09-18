@@ -24,7 +24,7 @@ const Navbar = () => {
             <div className='link-btn desktop-only'>
                 <Link to='/'> <button className='nav-link-btn-1'>Home</button></Link>
                 <button className='nav-link-btn-2'>Listed Books</button>
-                <button className='nav-link-btn-3'>Pages to read</button>
+                <Link to ='/readList'><button className='nav-link-btn-3'>Read List</button></Link>
             </div>
             {/* desktop-btn */}
             <div className='desktop-only'>
